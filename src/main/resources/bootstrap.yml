@@ -3,6 +3,4 @@ spring:
     name: bc-apigateway-server
   cloud:
     config:
-      uri: https://config-server-pj2.mybluemix.net/
-      username: ${SECURITY_USERNAME}
-      password: ${SECURITY_PASSWORD}
+      uri: https://ms-config-server.azurewebsites.net
