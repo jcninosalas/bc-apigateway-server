@@ -1,7 +1,27 @@
 spring:
   application:
     name: bc-apigateway-server
-
   cloud:
-    config:
-      uri: https://ms-config-server.azurewebsites.net
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: enterprise-customer-service
+          uri: lb://enterprise-customer-service
+          predicates:
+            - Path=/e-customers/**
+
+#  cloud:
+#    config:
+#      uri: https://ms-config-server.azurewebsites.net
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-bc.azurewebsites.net/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
