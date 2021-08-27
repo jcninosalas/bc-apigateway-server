@@ -8,7 +8,7 @@ spring:
           enabled: true
       routes:
         - id: enterprise-customer-service
-          uri: lb://enterprise-customer-service
+          uri: https://ms-enterprise-customer.azurewebsites.net
           predicates:
             - Path=/e-customers/**
 
